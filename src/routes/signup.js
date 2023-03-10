@@ -3,7 +3,7 @@ const router = express.Router();
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../firebase.js";
 
-router.post("/singup", async (req, res) => {
+router.post("/signup", async (req, res) => {
   try {
     const { name, email, password } = req.body;
     const docRef = await addDoc(collection(db, "users"), {
@@ -16,6 +16,5 @@ router.post("/singup", async (req, res) => {
     console.error("Error adding user: ", e);
   }
 });
-
 
 export default router;
